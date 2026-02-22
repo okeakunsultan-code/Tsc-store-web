@@ -3,27 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="robots" content="noindex, nofollow"> <!-- opsional, kalau ga mau diindex Google -->
-
-    <!-- Security Headers -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), vr=()">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-
     <title>TSC Store - The Spike Script OP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         body { 
             font-family:'Roboto',sans-serif; 
             background:#000000; 
-            color:#ffffff; 
+            color:#f5f5f5; 
             line-height:1.8; 
         }
         .hero { 
@@ -38,125 +26,137 @@
         }
         .logo { 
             font-family:'Orbitron',sans-serif; 
-            font-size:6rem; 
+            font-size:7rem; 
             font-weight:900; 
             color:#ffffff; 
+            text-shadow:0 0 30px rgba(255,255,255,0.5); 
             margin-bottom:0.5rem; 
         }
         .subtitle { 
-            font-size:2.2rem; 
-            color:#dddddd; 
-            margin-bottom:2rem; 
+            font-size:2.5rem; 
+            color:#e0e0e0; 
+            margin-bottom:2.5rem; 
+            letter-spacing:2px; 
+            font-weight:500; 
         }
         .title { 
-            font-size:2.8rem; 
-            margin-bottom:1rem; 
+            font-size:3rem; 
+            color:#ffffff; 
+            margin-bottom:1.5rem; 
+            font-weight:700; 
         }
         .tagline { 
-            font-size:1.8rem; 
-            color:#cccccc; 
-            margin-bottom:3rem; 
+            font-size:2rem; 
+            color:#ffd700; 
+            margin-bottom:3.5rem; 
             max-width:90%; 
+            font-weight:500; 
+            text-shadow:0 0 15px rgba(255,215,0,0.4); 
         }
         .cta { 
-            background:#ffffff; 
+            background:linear-gradient(135deg, #ffffff, #f0f0f0); 
             color:#000000; 
-            padding:1.2rem 3.5rem; 
-            font-size:1.5rem; 
-            font-weight:bold; 
+            padding:1.3rem 4rem; 
+            font-size:1.6rem; 
+            font-weight:700; 
             border:none; 
             border-radius:50px; 
             text-decoration:none; 
-            box-shadow:0 8px 25px rgba(255,255,255,0.15); 
+            box-shadow:0 10px 30px rgba(255,255,255,0.2); 
             transition:all 0.4s ease; 
         }
         .cta:hover { 
-            transform:scale(1.08) translateY(-5px); 
-            box-shadow:0 15px 40px rgba(255,255,255,0.4); 
+            transform:scale(1.08) translateY(-6px); 
+            box-shadow:0 20px 50px rgba(255,255,255,0.35); 
         }
         section { 
-            padding:5rem 1.5rem; 
-            max-width:1100px; 
+            padding:6rem 1.5rem; 
+            max-width:1200px; 
             margin:0 auto; 
         }
         h2 { 
             font-family:'Orbitron',sans-serif; 
-            font-size:3rem; 
+            font-size:3.5rem; 
             text-align:center; 
             color:#ffffff; 
-            margin-bottom:2.5rem; 
+            margin-bottom:3rem; 
+            text-shadow:0 0 20px rgba(255,255,255,0.2); 
         }
         h3 { 
-            font-size:2.2rem; 
-            color:#dddddd; 
-            margin:3rem 0 1.5rem; 
+            font-size:2.4rem; 
+            color:#e0e0e0; 
+            margin:4rem 0 2rem; 
             text-align:center; 
+            font-weight:700; 
         }
         ul { 
             list-style:none; 
             padding:0; 
-            font-size:1.25rem; 
-            max-width:900px; 
-            margin:0 auto 2rem auto; 
-            color:#ffffff; 
+            font-size:1.3rem; 
+            max-width:950px; 
+            margin:0 auto 3rem auto; 
+            color:#f5f5f5; 
         }
         ul li { 
-            margin:1.2rem 0; 
-            padding-left:2.2rem; 
+            margin:1.5rem 0; 
+            padding-left:2.5rem; 
             position:relative; 
         }
         ul li::before { 
-            content:'•'; 
+            content:'✔'; 
             position:absolute; 
             left:0; 
-            color:#ffffff; 
+            color:#ffd700; 
             font-weight:bold; 
+            font-size:1.4rem; 
         }
         .warning { 
             background:#1a0000; 
-            border:2px solid #ff0000; 
-            border-radius:15px; 
-            padding:2rem; 
-            margin:3rem 0; 
+            border:3px solid #ff4d4d; 
+            border-radius:20px; 
+            padding:2.5rem; 
+            margin:4rem 0; 
             text-align:center; 
-            font-size:1.3rem; 
+            font-size:1.4rem; 
             color:#ffcccc; 
+            font-weight:500; 
         }
         .big-buy { 
             text-align:center; 
-            margin:6rem 1.5rem; 
-            padding:4rem 1.5rem; 
+            margin:7rem 1.5rem; 
+            padding:5rem 1.5rem; 
         }
         .big-buy-btn { 
-            background:#ffffff; 
+            background:linear-gradient(135deg, #ffffff, #f0f0f0); 
             color:#000000; 
-            padding:2rem 5rem; 
-            font-size:2.2rem; 
-            font-weight:bold; 
+            padding:2.2rem 6rem; 
+            font-size:2.4rem; 
+            font-weight:700; 
             border:none; 
             border-radius:60px; 
             text-decoration:none; 
-            box-shadow:0 12px 35px rgba(255,255,255,0.2); 
-            transition:all 0.3s; 
+            box-shadow:0 15px 40px rgba(255,255,255,0.2); 
+            transition:all 0.4s ease; 
             display:inline-block; 
         }
         .big-buy-btn:hover { 
-            transform:scale(1.05); 
-            box-shadow:0 18px 50px rgba(255,255,255,0.3); 
+            transform:scale(1.08) translateY(-8px); 
+            box-shadow:0 25px 60px rgba(255,255,255,0.35); 
         }
         footer { 
             background:#000000; 
-            padding:3rem 1.5rem; 
+            padding:4rem 1.5rem; 
             text-align:center; 
-            font-size:1.3rem; 
+            font-size:1.4rem; 
             color:#cccccc; 
+            border-top:1px solid #222222; 
         }
 
         @media (max-width:768px) { 
-            .logo{font-size:4.5rem} 
-            .title{font-size:2.2rem} 
-            h2{font-size:2.5rem} 
-            .big-buy-btn{font-size:1.8rem;padding:1.5rem 4rem} 
+            .logo{font-size:4.8rem} 
+            .title{font-size:2.4rem} 
+            h2{font-size:2.8rem} 
+            .big-buy-btn{font-size:2rem;padding:1.8rem 4.5rem} 
         }
     </style>
 </head>
