@@ -16,7 +16,8 @@
         }
         .hero { 
             height:100vh; 
-            background:#000000; 
+            background:#000000 url('https://files.catbox.moe/3z3z3z.jpg') center/cover no-repeat; 
+            position:relative; 
             display:flex; 
             flex-direction:column; 
             justify-content:center; 
@@ -24,22 +25,48 @@
             text-align:center; 
             padding:0 1.5rem; 
         }
-        .logo { 
+        .hero::after { 
+            content:''; 
+            position:absolute; 
+            inset:0; 
+            background:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8)); 
+        }
+        .logo-circle { 
+            position:absolute; 
+            bottom:20%; 
+            right:10%; 
+            width:120px; 
+            height:120px; 
+            border-radius:50%; 
+            overflow:hidden; 
+            border:3px solid #ffffff; 
+            box-shadow:0 0 20px rgba(255,255,255,0.5); 
+            z-index:2; 
+        }
+        .logo-circle img { 
+            width:100%; 
+            height:100%; 
+            object-fit:cover; 
+        }
+        .logo-text { 
             font-family:'Orbitron',sans-serif; 
             font-size:5rem; 
             font-weight:900; 
             color:#ffffff; 
             margin-bottom:1.5rem; 
+            z-index:2; 
         }
         .title { 
             font-size:2.8rem; 
             margin-bottom:1rem; 
+            z-index:2; 
         }
         .tagline { 
             font-size:1.8rem; 
             color:#cccccc; 
             margin-bottom:3rem; 
             max-width:90%; 
+            z-index:2; 
         }
         .cta { 
             background:#ffffff; 
@@ -52,6 +79,7 @@
             text-decoration:none; 
             box-shadow:0 8px 25px rgba(255,255,255,0.15); 
             transition:all 0.3s; 
+            z-index:2; 
         }
         .cta:hover { 
             transform:scale(1.05); 
@@ -61,6 +89,8 @@
             padding:5rem 1.5rem; 
             max-width:1100px; 
             margin:0 auto; 
+            position:relative; 
+            z-index:2; 
         }
         h2 { 
             font-family:'Orbitron',sans-serif; 
@@ -94,12 +124,15 @@
             color:#ffffff; 
             font-weight:bold; 
         }
-        .video-section { 
-            text-align:center; 
-            margin:4rem 0; 
-            padding:2rem; 
-            background:#111111; 
+        .warning { 
+            background:#1a0000; 
+            border:2px solid #ff0000; 
             border-radius:15px; 
+            padding:2rem; 
+            margin:3rem 0; 
+            text-align:center; 
+            font-size:1.3rem; 
+            color:#ffcccc; 
         }
         .big-buy { 
             text-align:center; 
@@ -128,24 +161,31 @@
             padding:3rem 1.5rem; 
             text-align:center; 
             font-size:1.3rem; 
+            border-top:1px solid #222; 
         }
         @media (max-width:768px) { 
             .logo{font-size:3.8rem} 
             .title{font-size:2.2rem} 
             h2{font-size:2.5rem} 
             .big-buy-btn{font-size:1.8rem;padding:1.5rem 4rem} 
+            .logo-circle { width:100px; height:100px; bottom:15%; right:5%; } 
         }
     </style>
 </head>
 <body>
 
     <div class="hero">
-        <div class="logo">TSC STORE</div>
+        <div class="logo-text">TSC STORE</div>
         <h1 class="title">THE SPIKE SCRIPT V6.5 OP 2026</h1>
         <p class="tagline">AXE LEBIH BAGUS DARI VIP! Axe Brutal Maksimal • VIP Santai & Ori</p>
         <a href="https://wa.me/6282141601321?text=Halo%20T%20Store!%20Mau%20beli%20script%20The%20Spike%20dong%20🔥" class="cta" target="_blank">
             <i class="fab fa-whatsapp"></i> CHAT ADMIN T STORE
         </a>
+
+        <!-- Logo lingkaran kecil seperti request lu -->
+        <div class="logo-circle">
+            <img src="https://files.catbox.moe/abcdef.jpg" alt="T Store Logo">  <!-- Ganti URL gambar lingkaran lu kalau punya -->
+        </div>
     </div>
 
     <section>
@@ -169,16 +209,11 @@
             <li><strong>AXE LEBIH BAGUS DARI VIP</strong> – Axe brutal full power, VIP santai & ori</li>
         </ul>
 
-        <!-- VIDEO TIKTOK DEMO AXE -->
-        <div class="video-section">
-            <h3>DEMO GAMEPLAY DARI SCRIPT AXE</h3>
-            <p style="color:#cccccc; margin-bottom:1.5rem;">Ini adalah gameplay dari script Axe – brutal maksimal!</p>
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@username/video/ZSm9of2bk" data-video-id="ZSm9of2bk" style="max-width:605px; min-width:325px;">
-                <section>
-                    <a href="https://www.tiktok.com/@username/video/ZSm9of2bk" target="_blank">Liat demo Axe TSC Store</a>
-                </section>
-            </blockquote>
-            <script async src="https://www.tiktok.com/embed.js"></script>
+        <div class="warning">
+            <strong>PERINGATAN RESMI</strong><br>
+            Jika ingin showcase script ini, WAJIB cantumkan nama pemilik SC: <strong>T Store</strong><br>
+            <strong>TIDAK ADA RESELLER SAMA SEKALI</strong><br>
+            Jika ketahuan ada reseller → AKAN DI BAN DARI SC KAMI PERMANEN
         </div>
 
         <h3>3. Paket Axe – Rp 47.000 (LEBIH BAGUS & BRUTAL)</h3>
@@ -191,18 +226,6 @@
             <li>Auto Win semua mode (story, tournament, colosseum, beach)</li>
             <li>Update gratis selamanya</li>
         </ul>
-
-        <!-- VIDEO TIKTOK DEMO VIP BARU -->
-        <div class="video-section">
-            <h3>DEMO GAMEPLAY DARI SCRIPT VIP</h3>
-            <p style="color:#cccccc; margin-bottom:1.5rem;">Ini gameplay untuk yang VIP – santai & ori tapi tetep bantu menang!</p>
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@username/video/ZSm9osjRd" data-video-id="ZSm9osjRd" style="max-width:605px; min-width:325px;">
-                <section>
-                    <a href="https://www.tiktok.com/@username/video/ZSm9osjRd" target="_blank">Liat demo VIP TSC Store</a>
-                </section>
-            </blockquote>
-            <script async src="https://www.tiktok.com/embed.js"></script>
-        </div>
 
         <h3>4. Paket VIP – Rp 37.000 (SANTAI & ORI)</h3>
         <ul>
@@ -234,4 +257,4 @@
         <p>© 2026 TSC Store. Dominate The Court! 🏐</p>
     </footer>
 </body>
-            </html>
+</html>
