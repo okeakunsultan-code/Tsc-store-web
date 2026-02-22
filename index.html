@@ -193,6 +193,74 @@
             font-weight:bold; 
             font-size:1.4rem; 
         }
+        
+        /* SECTION SHOWCASE TIKTOK */
+        .showcase-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin: 5rem 0;
+        }
+        
+        .showcase-card {
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid #333;
+            border-radius: 30px;
+            padding: 2.5rem;
+            width: 350px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .showcase-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .showcase-icon {
+            font-size: 4rem;
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .showcase-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+        
+        .showcase-desc {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+        
+        .showcase-link {
+            display: inline-block;
+            background: #ffd700;
+            color: #000000;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .showcase-link:hover {
+            background: #ffffff;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .showcase-link i {
+            margin-right: 0.8rem;
+        }
+        
         .warning { 
             background:#1a0000; 
             border:3px solid #ff4d4d; 
@@ -243,7 +311,8 @@
             .logo{font-size:4.8rem} 
             .title{font-size:2.4rem} 
             h2{font-size:2.8rem} 
-            .big-buy-btn{font-size:2rem;padding:1.8rem 4.5rem} 
+            .big-buy-btn{font-size:2rem;padding:1.8rem 4.5rem}
+            .showcase-card { width: 100%; }
         }
     </style>
 </head>
@@ -283,6 +352,42 @@
             <li>Fitur utama: Auto spike, unlimited stat/money, unlock karakter, anti ban</li>
             <li><strong>AXE LEBIH BAGUS DARI VIP</strong> – Axe brutal full power, VIP santai & ori</li>
         </ul>
+
+        <!-- SHOWCASE TIKTOK SECTION -->
+        <div style="text-align: center; margin: 5rem 0 2rem 0;">
+            <h2 style="font-size: 3rem; margin-bottom: 1rem;">LIHAT BUKTI NYATA!</h2>
+            <p style="font-size: 1.6rem; color: #ffd700; margin-bottom: 3rem;">Klik link TikTok di bawah buat lihat gameplay aslinya 👇</p>
+        </div>
+        
+        <div class="showcase-container">
+            <!-- PAKET AXE -->
+            <div class="showcase-card">
+                <div class="showcase-icon">
+                    <i class="fas fa-skull"></i>
+                </div>
+                <div class="showcase-title">🔥 PAKET AXE 🔥</div>
+                <div class="showcase-desc">
+                    Versi brutal full power! Stat 999, auto spike 100%, nuklir di court!
+                </div>
+                <a href="https://vt.tiktok.com/ZSm9of2bk/" class="showcase-link" target="_blank">
+                    <i class="fab fa-tiktok"></i> LIHAT SHOWCASE AXE
+                </a>
+            </div>
+            
+            <!-- PAKET VIP -->
+            <div class="showcase-card">
+                <div class="showcase-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="showcase-title">👑 PAKET VIP 👑</div>
+                <div class="showcase-desc">
+                    Versi santai & ori! Stat naik natural, anti detect super aman!
+                </div>
+                <a href="https://vt.tiktok.com/ZSm9osjRd/" class="showcase-link" target="_blank">
+                    <i class="fab fa-tiktok"></i> LIHAT SHOWCASE VIP
+                </a>
+            </div>
+        </div>
 
         <div class="warning">
             <strong>PERINGATAN RESMI</strong><br>
