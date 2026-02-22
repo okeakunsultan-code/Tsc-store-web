@@ -272,6 +272,271 @@
             color:#ffcccc; 
             font-weight:500; 
         }
+        
+        /* MEME SECTION - ADMIN T STORE */
+        .meme-section {
+            margin: 8rem 0;
+            padding: 3rem;
+            background: rgba(10, 10, 10, 0.6);
+            border-radius: 50px;
+            border: 1px solid #ffd70033;
+            backdrop-filter: blur(10px);
+        }
+        
+        .meme-title {
+            font-size: 3rem;
+            text-align: center;
+            color: #ffd700;
+            margin-bottom: 3rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .meme-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+        }
+        
+        /* CSS ART - ADMIN T STORE */
+        .meme-art {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background: #0a0a0a;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+            border: 2px solid #ffd700;
+        }
+        
+        /* Throne made of money */
+        .throne {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 150px;
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            border-radius: 20px 20px 50px 50px;
+            box-shadow: 0 10px 0 #8b6913;
+        }
+        
+        .money-stack {
+            position: absolute;
+            bottom: 160px;
+            left: 30px;
+            width: 60px;
+            height: 80px;
+            background: #2e7d32;
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            transform: rotate(-10deg);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .money-stack::before {
+            content: "$";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffd700;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .money-stack2 {
+            left: 100px;
+            bottom: 170px;
+            width: 70px;
+            height: 90px;
+            transform: rotate(5deg);
+        }
+        
+        .money-stack3 {
+            left: 180px;
+            bottom: 180px;
+            width: 65px;
+            height: 100px;
+            transform: rotate(-5deg);
+        }
+        
+        .money-stack4 {
+            left: 250px;
+            bottom: 165px;
+            width: 55px;
+            height: 75px;
+            transform: rotate(8deg);
+        }
+        
+        /* Admin character */
+        .admin {
+            position: absolute;
+            bottom: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 150px;
+            z-index: 10;
+        }
+        
+        .hoodie {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: #111111;
+            border-radius: 60px 60px 20px 20px;
+            box-shadow: 0 5px 0 #000;
+        }
+        
+        .hoodie::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 50px 0 0 #ffffff;
+        }
+        
+        .hoodie::after {
+            content: "";
+            position: absolute;
+            top: 30px;
+            left: 45px;
+            width: 10px;
+            height: 10px;
+            background: #ffd700;
+            border-radius: 50%;
+        }
+        
+        .crown {
+            position: absolute;
+            top: -20px;
+            left: 35px;
+            width: 50px;
+            height: 30px;
+            background: #ffd700;
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        }
+        
+        /* Server racks */
+        .servers {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 150px;
+            background: #222;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+        }
+        
+        .server-line {
+            width: 80%;
+            height: 10px;
+            background: #00ff00;
+            margin: 10px auto;
+            border-radius: 5px;
+            opacity: 0.5;
+        }
+        
+        .tsc-logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #ffd700;
+            text-shadow: 0 0 10px #ffd700;
+            z-index: 20;
+        }
+        
+        /* Queue of buyers */
+        .queue {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .queue-person {
+            width: 30px;
+            height: 40px;
+            background: #333;
+            border-radius: 10px 10px 5px 5px;
+            position: relative;
+        }
+        
+        .queue-person::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 5px;
+            width: 20px;
+            height: 20px;
+            background: #ffd700;
+            border-radius: 50%;
+        }
+        
+        .queue-person:nth-child(2) { margin-left: 10px; }
+        .queue-person:nth-child(3) { margin-left: 20px; }
+        .queue-person:nth-child(4) { margin-left: 30px; }
+        .queue-person:nth-child(5) { margin-left: 40px; }
+        
+        /* Meme text */
+        .meme-text {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 3rem;
+            border-radius: 30px;
+            border-left: 5px solid #ffd700;
+        }
+        
+        .meme-quote {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .meme-quote-admin {
+            font-size: 3.5rem;
+            color: #ffd700;
+            text-shadow: 0 0 20px #ffd700;
+        }
+        
+        .meme-quote-text {
+            font-size: 2rem;
+            margin: 2rem 0;
+            line-height: 1.4;
+        }
+        
+        .meme-quote-text i {
+            color: #ffd700;
+            margin-right: 1rem;
+        }
+        
+        .meme-quote-gw {
+            font-size: 2.8rem;
+            color: #ffffff;
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+        
         .big-buy { 
             text-align:center; 
             margin:7rem 1.5rem; 
@@ -313,6 +578,7 @@
             h2{font-size:2.8rem} 
             .big-buy-btn{font-size:2rem;padding:1.8rem 4.5rem}
             .showcase-card { width: 100%; }
+            .meme-art { width: 300px; height: 300px; }
         }
     </style>
 </head>
@@ -382,59 +648,4 @@
                 <div class="showcase-title">👑 PAKET VIP 👑</div>
                 <div class="showcase-desc">
                     Versi santai & ori! Stat naik natural, anti detect super aman!
-                </div>
-                <a href="https://vt.tiktok.com/ZSm9osjRd/" class="showcase-link" target="_blank">
-                    <i class="fab fa-tiktok"></i> LIHAT SHOWCASE VIP
-                </a>
-            </div>
-        </div>
-
-        <div class="warning">
-            <strong>PERINGATAN RESMI</strong><br>
-            Jika ingin showcase script ini, WAJIB cantumkan nama pemilik SC: <strong>T Store</strong><br>
-            <strong>TIDAK ADA RESELLER SAMA SEKALI</strong><br>
-            Jika ketahuan ada reseller → AKAN DI BAN DARI SC KAMI PERMANEN
-        </div>
-
-        <h3>3. Paket Axe – Rp 47.000 (LEBIH BAGUS & BRUTAL)</h3>
-        <ul>
-            <li>Unlimited Stat FULL MAX (999 semua)</li>
-            <li>Auto Spike Perfect 100% (selalu masuk)</li>
-            <li>Boom Jump & Quick Attack Max (nuklir di court)</li>
-            <li>Unlock ALL Characters (full roster OP)</li>
-            <li>God Mode + Anti Ban Lifetime</li>
-            <li>Auto Win semua mode (story, tournament, colosseum, beach)</li>
-            <li>Update gratis selamanya</li>
-        </ul>
-
-        <h3>4. Paket VIP – Rp 37.000 (SANTAI & ORI)</h3>
-        <ul>
-            <li>Unlimited Money & Coins</li>
-            <li>Stat naik signifikan (tetep terasa natural)</li>
-            <li>Auto Spike 80-95% Perfect (jarang miss, mirip ori)</li>
-            <li>Unlock sebagian karakter premium</li>
-            <li>Anti detect basic (sangat aman, low risk)</li>
-            <li>Support standar</li>
-        </ul>
-
-        <h3>5. Kesimpulan</h3>
-        <ul>
-            <li><strong>Axe lebih bagus dari VIP</strong> – fitur full brutal, performa maksimal</li>
-            <li>VIP cocok kalau lu mau santai & ori (ringan, aman, mirip asli)</li>
-            <li>Axe buat yang pengen menang telak tanpa ampun</li>
-            <li>Pilih Axe kalau lu mau yang terbaik!</li>
-        </ul>
-    </section>
-
-    <div class="big-buy">
-        <a href="https://wa.me/6282141601321?text=Halo%20T%20Store!%20Mau%20beli%20script%20The%20Spike%20nih%20🔥" class="big-buy-btn" target="_blank">
-            <i class="fab fa-whatsapp fa-2x" style="margin-right:1rem;"></i> CHAT ADMIN T STORE SEKARANG
-        </a>
-    </div>
-
-    <footer>
-        <p>TSC STORE – Official The Spike Script Seller</p>
-        <p>© 2026 TSC Store. Dominate The Court! 🏐</p>
-    </footer>
-</body>
-    </html>
+                
