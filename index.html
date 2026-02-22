@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="noindex, nofollow"> <!-- opsional, kalau ga mau diindex Google -->
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), vr=()">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
     <title>TSC Store - The Spike Script OP</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -30,29 +42,21 @@
             font-weight:900; 
             color:#ffffff; 
             margin-bottom:0.5rem; 
-            opacity:0; 
-            transform:scale(0.8); 
-            animation:fadeScale 1.5s ease-out forwards; 
         }
         .subtitle { 
             font-size:2.2rem; 
             color:#dddddd; 
             margin-bottom:2rem; 
-            opacity:0; 
-            animation:fadeIn 1.8s ease-out 0.5s forwards; 
         }
         .title { 
             font-size:2.8rem; 
             margin-bottom:1rem; 
-            opacity:0; 
-            animation:fadeIn 2s ease-out 0.8s forwards; 
         }
         .tagline { 
             font-size:1.8rem; 
-            color:#dddddd; 
+            color:#cccccc; 
             margin-bottom:3rem; 
             max-width:90%; 
-            animation:pulseText 4s infinite ease-in-out 1.5s; 
         }
         .cta { 
             background:#ffffff; 
@@ -65,8 +69,6 @@
             text-decoration:none; 
             box-shadow:0 8px 25px rgba(255,255,255,0.15); 
             transition:all 0.4s ease; 
-            opacity:0; 
-            animation:fadeIn 2.2s ease-out 1.2s forwards; 
         }
         .cta:hover { 
             transform:scale(1.08) translateY(-5px); 
@@ -76,13 +78,6 @@
             padding:5rem 1.5rem; 
             max-width:1100px; 
             margin:0 auto; 
-            opacity:0; 
-            transform:translateY(30px); 
-            transition:all 0.8s ease-out; 
-        }
-        section.visible { 
-            opacity:1; 
-            transform:translateY(0); 
         }
         h2 { 
             font-family:'Orbitron',sans-serif; 
@@ -155,18 +150,6 @@
             text-align:center; 
             font-size:1.3rem; 
             color:#cccccc; 
-        }
-
-        /* Animasi */
-        @keyframes fadeScale {
-            to { opacity:1; transform:scale(1); }
-        }
-        @keyframes fadeIn {
-            to { opacity:1; }
-        }
-        @keyframes pulseText {
-            0%, 100% { opacity:0.8; transform:scale(1); }
-            50% { opacity:1; transform:scale(1.02); }
         }
 
         @media (max-width:768px) { 
@@ -257,19 +240,5 @@
         <p>TSC STORE – Official The Spike Script Seller</p>
         <p>© 2026 TSC Store. Dominate The Court! 🏐</p>
     </footer>
-
-    <script>
-        // Animasi fade-in section saat scroll
-        const sections = document.querySelectorAll('section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        sections.forEach(section => observer.observe(section));
-    </script>
 </body>
 </html>
