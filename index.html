@@ -3,438 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TSC Store - The Spike Script OP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>TStore · The Spike</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
-        /* EFEK BACKGROUND PREMIUM - PARTICLE GLOW + FLOATING ORBS */
-        body { 
-            font-family:'Roboto',sans-serif; 
-            background:#000000; 
-            color:#f5f5f5; 
-            line-height:1.8;
+        body {
+            background: #000;
+            color: #fff;
             position: relative;
             overflow-x: hidden;
         }
-        
-        /* Particle Glow Effect */
-        body::before {
-            content: "";
+
+        /* Black Hole Background */
+        .black-hole {
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.03) 0%, transparent 20%),
-                        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 25%),
-                        radial-gradient(circle at 40% 80%, rgba(255, 215, 0, 0.02) 0%, transparent 30%),
-                        radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 35%);
-            pointer-events: none;
-            z-index: -1;
-            animation: pulseGlow 8s ease-in-out infinite alternate;
+            background: radial-gradient(circle at 50% 50%, #000, #0a0a1a, #000);
+            z-index: -2;
         }
-        
-        @keyframes pulseGlow {
-            0% { opacity: 0.5; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.05); }
-        }
-        
-        /* Floating Orbs */
-        .floating-orb {
+
+        .disk {
             position: fixed;
-            width: 300px;
-            height: 300px;
+            width: 800px;
+            height: 800px;
+            background: conic-gradient(from 0deg, transparent, rgba(124,58,237,0.2), rgba(79,70,229,0.2), transparent);
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.15), transparent 70%);
-            filter: blur(40px);
-            pointer-events: none;
-            z-index: -1;
-            animation: floatAround 20s infinite alternate ease-in-out;
-        }
-        
-        .orb1 {
-            top: 10%;
-            left: 5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1), transparent 80%);
-            animation-duration: 25s;
-        }
-        
-        .orb2 {
-            bottom: 10%;
-            right: 5%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08), transparent 70%);
-            animation-duration: 30s;
-            animation-delay: -5s;
-        }
-        
-        .orb3 {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05), transparent 80%);
-            animation-duration: 35s;
-            animation-delay: -10s;
-        }
-        
-        @keyframes floatAround {
-            0% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(-2%, -3%) scale(1.05); }
-            50% { transform: translate(3%, 2%) scale(0.95); }
-            75% { transform: translate(-1%, 4%) scale(1.02); }
-            100% { transform: translate(2%, -2%) scale(1); }
-        }
-        
-        .hero { 
-            height:100vh; 
-            background:transparent; 
-            display:flex; 
-            flex-direction:column; 
-            justify-content:center; 
-            align-items:center; 
-            text-align:center; 
-            padding:0 1.5rem; 
-            position: relative;
-            z-index: 1;
-        }
-        
-        .logo { 
-            font-family:'Orbitron',sans-serif; 
-            font-size:7rem; 
-            font-weight:900; 
-            color:#ffffff; 
-            text-shadow:0 0 30px rgba(255,255,255,0.5); 
-            margin-bottom:0.5rem; 
-        }
-        .subtitle { 
-            font-size:2.5rem; 
-            color:#e0e0e0; 
-            margin-bottom:2.5rem; 
-            letter-spacing:2px; 
-            font-weight:500; 
-        }
-        .title { 
-            font-size:3rem; 
-            color:#ffffff; 
-            margin-bottom:1.5rem; 
-            font-weight:700; 
-        }
-        .tagline { 
-            font-size:2rem; 
-            color:#ffd700; 
-            margin-bottom:3.5rem; 
-            max-width:90%; 
-            font-weight:500; 
-            text-shadow:0 0 15px rgba(255,215,0,0.4); 
-        }
-        .cta { 
-            background:linear-gradient(135deg, #ffffff, #f0f0f0); 
-            color:#000000; 
-            padding:1.3rem 4rem; 
-            font-size:1.6rem; 
-            font-weight:700; 
-            border:none; 
-            border-radius:50px; 
-            text-decoration:none; 
-            box-shadow:0 10px 30px rgba(255,255,255,0.2); 
-            transition:all 0.4s ease; 
-        }
-        .cta:hover { 
-            transform:scale(1.08) translateY(-6px); 
-            box-shadow:0 20px 50px rgba(255,255,255,0.35); 
-        }
-        section { 
-            padding:6rem 1.5rem; 
-            max-width:1200px; 
-            margin:0 auto;
-            position: relative;
-            z-index: 1; 
-        }
-        h2 { 
-            font-family:'Orbitron',sans-serif; 
-            font-size:3.5rem; 
-            text-align:center; 
-            color:#ffffff; 
-            margin-bottom:3rem; 
-            text-shadow:0 0 20px rgba(255,255,255,0.2); 
-        }
-        h3 { 
-            font-size:2.4rem; 
-            color:#e0e0e0; 
-            margin:4rem 0 2rem; 
-            text-align:center; 
-            font-weight:700; 
-        }
-        ul { 
-            list-style:none; 
-            padding:0; 
-            font-size:1.3rem; 
-            max-width:950px; 
-            margin:0 auto 3rem auto; 
-            color:#f5f5f5; 
-        }
-        ul li { 
-            margin:1.5rem 0; 
-            padding-left:2.5rem; 
-            position:relative; 
-        }
-        ul li::before { 
-            content:'✔'; 
-            position:absolute; 
-            left:0; 
-            color:#ffd700; 
-            font-weight:bold; 
-            font-size:1.4rem; 
-        }
-        
-        /* SECTION SHOWCASE TIKTOK */
-        .showcase-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 3rem;
-            margin: 5rem 0;
-        }
-        
-        .showcase-card {
-            background: rgba(10, 10, 10, 0.8);
-            border: 1px solid #333;
-            border-radius: 30px;
-            padding: 2.5rem;
-            width: 350px;
-            text-align: center;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-        }
-        
-        .showcase-card:hover {
-            transform: translateY(-10px);
-            border-color: #ffd700;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-        }
-        
-        .showcase-icon {
-            font-size: 4rem;
-            color: #ffd700;
-            margin-bottom: 1.5rem;
-        }
-        
-        .showcase-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 1rem;
-        }
-        
-        .showcase-desc {
-            font-size: 1.3rem;
-            color: #cccccc;
-            margin-bottom: 2rem;
-        }
-        
-        .showcase-link {
-            display: inline-block;
-            background: #ffd700;
-            color: #000000;
-            padding: 1.2rem 2.5rem;
-            font-size: 1.4rem;
-            font-weight: 700;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .showcase-link:hover {
-            background: #ffffff;
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        }
-        
-        .showcase-link i {
-            margin-right: 0.8rem;
-        }
-        
-        .warning { 
-            background:#1a0000; 
-            border:3px solid #ff4d4d; 
-            border-radius:20px; 
-            padding:2.5rem; 
-            margin:4rem 0; 
-            text-align:center; 
-            font-size:1.4rem; 
-            color:#ffcccc; 
-            font-weight:500; 
-        }
-        .big-buy { 
-            text-align:center; 
-            margin:7rem 1.5rem; 
-            padding:5rem 1.5rem;
-            position: relative;
-            z-index: 1; 
-        }
-        .big-buy-btn { 
-            background:linear-gradient(135deg, #ffffff, #f0f0f0); 
-            color:#000000; 
-            padding:2.2rem 6rem; 
-            font-size:2.4rem; 
-            font-weight:700; 
-            border:none; 
-            border-radius:60px; 
-            text-decoration:none; 
-            box-shadow:0 15px 40px rgba(255,255,255,0.2); 
-            transition:all 0.4s ease; 
-            display:inline-block; 
-        }
-        .big-buy-btn:hover { 
-            transform:scale(1.08) translateY(-8px); 
-            box-shadow:0 25px 60px rgba(255,255,255,0.35); 
-        }
-        footer { 
-            background:#000000; 
-            padding:4rem 1.5rem; 
-            text-align:center; 
-            font-size:1.4rem; 
-            color:#cccccc; 
-            border-top:1px solid #222222;
-            position: relative;
-            z-index: 1; 
+            filter: blur(50px);
+            animation: spin 30s linear infinite;
+            z-index: -1;
+            opacity: 0.4;
         }
 
-        @media (max-width:768px) { 
-            .logo{font-size:4.8rem} 
-            .title{font-size:2.4rem} 
-            h2{font-size:2.8rem} 
-            .big-buy-btn{font-size:2rem;padding:1.8rem 4.5rem}
-            .showcase-card { width: 100%; }
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(2px 2px at 10px 20px, #fff, transparent),
+                              radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+                              radial-gradient(3px 3px at 100px 200px, #fff, transparent);
+            background-size: 400px 400px;
+            animation: move 100s linear infinite;
+            opacity: 0.3;
+            z-index: -1;
         }
+
+        @keyframes spin { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes move { from { transform: translateY(0); } to { transform: translateY(-800px); } }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
+
+        /* Hero */
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .logo { font-size: 5rem; font-weight: 800; background: linear-gradient(135deg, #fff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+        .title { font-size: 2.5rem; margin: 1rem 0; }
+        .highlight { color: #ffd700; font-weight: 700; }
+        .btn {
+            display: inline-block; background: #25d366; color: white; padding: 1rem 2.5rem;
+            border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.2rem;
+            margin-top: 2rem; transition: 0.3s; box-shadow: 0 0 30px rgba(37,211,102,0.3);
+        }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(37,211,102,0.5); }
+
+        /* Cards */
+        .section-title { font-size: 2rem; text-align: center; margin: 3rem 0 2rem; color: #ffd700; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .card {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px; padding: 1.8rem; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: #7c3aed; box-shadow: 0 0 30px rgba(124,58,237,0.2); }
+        .price { font-size: 2rem; font-weight: 700; color: #7c3aed; margin: 1rem 0; }
+        .price small { font-size: 0.9rem; color: #888; }
+
+        /* List */
+        .list-item { display: flex; align-items: center; gap: 0.8rem; padding: 0.5rem 0; border-bottom: 1px dashed rgba(255,255,255,0.05); }
+        .list-item i { color: #10b981; width: 20px; }
+
+        /* Warning */
+        .warning {
+            background: rgba(255,71,87,0.05); border: 1px solid #ff4757; border-radius: 15px;
+            padding: 1.5rem; text-align: center; margin: 2rem 0; color: #ff4757;
+        }
+
+        /* Footer */
+        .footer { text-align: center; padding: 2rem; color: #666; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 3rem; }
+        
+        @media (max-width: 768px) { .logo { font-size: 3.5rem; } .title { font-size: 1.8rem; } }
     </style>
 </head>
 <body>
-    <!-- Floating Orbs Background -->
-    <div class="floating-orb orb1"></div>
-    <div class="floating-orb orb2"></div>
-    <div class="floating-orb orb3"></div>
+    <div class="black-hole"></div>
+    <div class="disk"></div>
+    <div class="stars"></div>
 
-    <div class="hero">
-        <div class="logo">TSC STORE</div>
-        <div class="subtitle">T Store</div>
-        <h1 class="title">THE SPIKE SCRIPT V6.5 OP 2026</h1>
-        <p class="tagline">AXE LEBIH BAGUS DARI VIP! Axe Brutal Maksimal • VIP Santai & Ori</p>
-        <a href="https://wa.me/6282141601321?text=Halo%20T%20Store!%20Mau%20beli%20script%20The%20Spike%20dong%20🔥" class="cta" target="_blank">
-            <i class="fab fa-whatsapp"></i> CHAT ADMIN T STORE
-        </a>
-    </div>
-
-    <section>
-        <h2>PENJELASAN LENGKAP</h2>
-
-        <h3>1. Game The Spike</h3>
-        <ul>
-            <li>Game voli mobile 3v3 vibe Haikyuu tapi lebih cepat & brutal</li>
-            <li>Kontrol satu player (timing spike, block, set, dive presisi)</li>
-            <li>Quick attack, pipe spike, fast tempo – spike bisa langsung kill lawan</li>
-            <li>Mode: Story, Tournament, Colosseum, Beach Volleyball, Super Star League</li>
-            <li>Karakter OP: Nishikawa, Sara, Raul, Hongshi, Ryuhyeon, dll</li>
-            <li>Download: Play Store, App Store, Steam (Cross)</li>
-        </ul>
-
-        <h3>2. Script TSC Store</h3>
-        <ul>
-            <li>Cheat OP khusus The Spike untuk dominate tanpa grind berat</li>
-            <li>Work di Android & iOS (anti detect update 2026)</li>
-            <li>Fitur utama: Auto spike, unlimited stat/money, unlock karakter, anti ban</li>
-            <li><strong>AXE LEBIH BAGUS DARI VIP</strong> – Axe brutal full power, VIP santai & ori</li>
-        </ul>
-
-        <!-- SHOWCASE TIKTOK SECTION -->
-        <div style="text-align: center; margin: 5rem 0 2rem 0;">
-            <h2 style="font-size: 3rem; margin-bottom: 1rem;">LIHAT BUKTI NYATA!</h2>
-            <p style="font-size: 1.6rem; color: #ffd700; margin-bottom: 3rem;">Klik link TikTok di bawah buat lihat gameplay aslinya 👇</p>
+    <div class="container">
+        <!-- HERO -->
+        <div class="hero">
+            <h1 class="logo">TSC STORE</h1>
+            <h2 class="title">THE SPIKE SCRIPT <span class="highlight">V6.5 OP</span></h2>
+            <p style="font-size: 1.3rem; margin: 1rem 0;">🔥 <span class="highlight">AXE LEBIH BAGUS DARI VIP!</span> 🔥</p>
+            <a href="https://wa.me/6282141601321?text=Halo%20T%20Store!%20Mau%20beli%20script%20The%20Spike%20🔥" class="btn">
+                <i class="fab fa-whatsapp"></i> CHAT ADMIN
+            </a>
         </div>
-        
-        <div class="showcase-container">
-            <!-- PAKET AXE -->
-            <div class="showcase-card">
-                <div class="showcase-icon">
-                    <i class="fas fa-skull"></i>
-                </div>
-                <div class="showcase-title">🔥 PAKET AXE 🔥</div>
-                <div class="showcase-desc">
-                    Versi brutal full power! Stat 999, auto spike 100%, nuklir di court!
-                </div>
-                <a href="https://vt.tiktok.com/ZSm9of2bk/" class="showcase-link" target="_blank">
-                    <i class="fab fa-tiktok"></i> LIHAT SHOWCASE AXE
-                </a>
+
+        <!-- GAME INFO -->
+        <h3 class="section-title">📌 TENTANG GAME</h3>
+        <div class="card" style="margin-bottom: 2rem;">
+            <div class="list-item"><i class="fas fa-dragon"></i> Game voli 3v3 ala Haikyuu</div>
+            <div class="list-item"><i class="fas fa-dragon"></i> Timing spike, block, set presisi</div>
+            <div class="list-item"><i class="fas fa-dragon"></i> Mode: Story, Tournament, Colosseum, Beach</div>
+            <div class="list-item"><i class="fas fa-dragon"></i> Karakter OP: Nishikawa, Sara, Raul, dll</div>
+        </div>
+
+        <!-- PRICE CARDS -->
+        <h3 class="section-title">💰 PAKET SCRIPT</h3>
+        <div class="grid">
+            <!-- AXE -->
+            <div class="card">
+                <h2 style="color: #7c3aed;">⚔️ PAKET AXE</h2>
+                <div class="price">Rp 47.000 <small>/lifetime</small></div>
+                <div class="list-item"><i class="fas fa-check"></i> Stat MAX 999 semua</div>
+                <div class="list-item"><i class="fas fa-check"></i> Auto Spike 100%</div>
+                <div class="list-item"><i class="fas fa-check"></i> Unlock ALL karakter</div>
+                <div class="list-item"><i class="fas fa-check"></i> God Mode + Anti Ban</div>
+                <div class="list-item"><i class="fas fa-check"></i> Auto Win semua mode</div>
             </div>
-            
-            <!-- PAKET VIP -->
-            <div class="showcase-card">
-                <div class="showcase-icon">
-                    <i class="fas fa-crown"></i>
-                </div>
-                <div class="showcase-title">👑 PAKET VIP 👑</div>
-                <div class="showcase-desc">
-                    Versi santai & ori! Stat naik natural, anti detect super aman!
-                </div>
-                <a href="https://vt.tiktok.com/ZSm9osjRd/" class="showcase-link" target="_blank">
-                    <i class="fab fa-tiktok"></i> LIHAT SHOWCASE VIP
-                </a>
+
+            <!-- VIP -->
+            <div class="card">
+                <h2 style="color: #ffd700;">👑 PAKET VIP</h2>
+                <div class="price">Rp 37.000 <small>/lifetime</small></div>
+                <div class="list-item"><i class="fas fa-check"></i> Unlimited Money & Coins</div>
+                <div class="list-item"><i class="fas fa-check"></i> Stat naik natural</div>
+                <div class="list-item"><i class="fas fa-check"></i> Auto Spike 80-95%</div>
+                <div class="list-item"><i class="fas fa-check"></i> Unlock sebagian karakter</div>
+                <div class="list-item"><i class="fas fa-check"></i> Anti detect basic</div>
             </div>
         </div>
 
+        <!-- WARNING -->
         <div class="warning">
-            <strong>PERINGATAN RESMI</strong><br>
-            Jika ingin showcase script ini, WAJIB cantumkan nama pemilik SC: <strong>T Store</strong><br>
-            <strong>TIDAK ADA RESELLER SAMA SEKALI</strong><br>
-            Jika ketahuan ada reseller → AKAN DI BAN DARI SC KAMI PERMANEN
+            <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+            <p><strong>PERINGATAN RESMI</strong></p>
+            <p>WAJIB cantumkan <strong>T Store</strong> jika showcase</p>
+            <p style="color: #ff4757; margin-top: 0.5rem;">🚫 TIDAK ADA RESELLER! BAN PERMANEN 🚫</p>
         </div>
 
-        <h3>3. Paket Axe – Rp 47.000 (LEBIH BAGUS & BRUTAL)</h3>
-        <ul>
-            <li>Unlimited Stat FULL MAX (999 semua)</li>
-            <li>Auto Spike Perfect 100% (selalu masuk)</li>
-            <li>Boom Jump & Quick Attack Max (nuklir di court)</li>
-            <li>Unlock ALL Characters (full roster OP)</li>
-            <li>God Mode + Anti Ban Lifetime</li>
-            <li>Auto Win semua mode (story, tournament, colosseum, beach)</li>
-            <li>Update gratis selamanya</li>
-        </ul>
+        <!-- COMPARISON -->
+        <h3 class="section-title">📊 KESIMPULAN</h3>
+        <div class="grid">
+            <div class="card" style="border-left: 4px solid #7c3aed;">
+                <h3 style="color: #7c3aed;">⚔️ AXE</h3>
+                <p>Lebih bagus & brutal, fitur full, menang telak</p>
+                <p style="color: #7c3aed; margin-top: 1rem;">★ Pilihan TERBAIK</p>
+            </div>
+            <div class="card" style="border-left: 4px solid #ffd700;">
+                <h3 style="color: #ffd700;">👑 VIP</h3>
+                <p>Santai & ori, natural, aman low risk</p>
+                <p style="color: #ffd700; margin-top: 1rem;">★ Pilihan AMAN</p>
+            </div>
+        </div>
 
-        <h3>4. Paket VIP – Rp 37.000 (SANTAI & ORI)</h3>
-        <ul>
-            <li>Unlimited Money & Coins</li>
-            <li>Stat naik signifikan (tetep terasa natural)</li>
-            <li>Auto Spike 80-95% Perfect (jarang miss, mirip ori)</li>
-            <li>Unlock sebagian karakter premium</li>
-            <li>Anti detect basic (sangat aman, low risk)</li>
-            <li>Support standar</li>
-        </ul>
+        <!-- CTA -->
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="https://wa.me/6282141601321?text=Halo%20T%20Store!%20Mau%20beli%20script%20The%20Spike%20🔥" class="btn" style="font-size: 1.5rem; padding: 1.2rem 3rem;">
+                <i class="fab fa-whatsapp"></i> CHAT ADMIN SEKARANG
+            </a>
+        </div>
 
-        <h3>5. Kesimpulan</h3>
-        <ul>
-            <li><strong>Axe lebih bagus dari VIP</strong> – fitur full brutal, performa maksimal</li>
-            <li>VIP cocok kalau lu mau santai & ori (ringan, aman, mirip asli)</li>
-            <li>Axe buat yang pengen menang telak tanpa ampun</li>
-            <li>Pilih Axe kalau lu mau yang terbaik!</li>
-        </ul>
-    </section>
-
-    <div class="big-buy">
-        <a href="https://wa.me/6282141601321?text=Halo%20T%20Store!%20Mau%20beli%20script%20The%20Spike%20nih%20🔥" class="big-buy-btn" target="_blank">
-            <i class="fab fa-whatsapp fa-2x" style="margin-right:1rem;"></i> CHAT ADMIN T STORE SEKARANG
-        </a>
+        <!-- FOOTER -->
+        <div class="footer">
+            <p><i class="fas fa-dragon"></i> TSC STORE · Official The Spike Seller</p>
+            <p>© 2026 · Dominate The Court! 🏐</p>
+        </div>
     </div>
-
-    <footer>
-        <p>TSC STORE – Official The Spike Script Seller</p>
-        <p>© 2026 TSC Store. Dominate The Court! 🏐</p>
-    </footer>
 </body>
-                                           </html>
+    </html>
