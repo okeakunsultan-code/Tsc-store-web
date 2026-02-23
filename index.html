@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TStore · The Spike</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>TStore · The Spike Script</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -59,7 +59,7 @@
         .container { max-width: 1000px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
 
         /* Hero */
-        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .logo { font-size: 5rem; font-weight: 800; background: linear-gradient(135deg, #fff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
         .title { font-size: 2.5rem; margin: 1rem 0; }
         .highlight { color: #ffd700; font-weight: 700; }
@@ -70,8 +70,85 @@
         }
         .btn:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(37,211,102,0.5); }
 
+        /* Section Styling */
+        .section-title { 
+            font-size: 2.2rem; 
+            text-align: center; 
+            margin: 3rem 0 2rem; 
+            color: #ffd700;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #7c3aed, #ffd700, transparent);
+        }
+
+        .explanation-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 25px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .explanation-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #7c3aed;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .explanation-card h3 i {
+            color: #ffd700;
+        }
+
+        .explanation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .explanation-item {
+            background: rgba(0,0,0,0.3);
+            border-radius: 18px;
+            padding: 1.5rem;
+            border-left: 3px solid #7c3aed;
+        }
+
+        .explanation-item h4 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .explanation-item p {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: rgba(124,58,237,0.2);
+            border: 1px solid #7c3aed;
+            border-radius: 20px;
+            padding: 0.3rem 1rem;
+            font-size: 0.9rem;
+            margin: 0.3rem;
+            color: #fff;
+        }
+
         /* Cards */
-        .section-title { font-size: 2rem; text-align: center; margin: 3rem 0 2rem; color: #ffd700; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
         .card {
             background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
@@ -118,6 +195,7 @@
             .logo { font-size: 3.5rem; } 
             .title { font-size: 1.8rem; }
             .showcase-grid { grid-template-columns: 1fr; }
+            .explanation-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -135,6 +213,56 @@
             <a href="https://wa.me/6282141601321?text=Halo%20T%20Store!%20Mau%20beli%20script%20The%20Spike%20🔥" class="btn">
                 <i class="fab fa-whatsapp"></i> CHAT ADMIN
             </a>
+        </div>
+
+        <!-- PENJELASAN THE SPIKE -->
+        <div class="explanation-card">
+            <h3><i class="fas fa-volleyball"></i> APA ITU THE SPIKE?</h3>
+            <div class="explanation-grid">
+                <div class="explanation-item">
+                    <h4>🎮 Gameplay</h4>
+                    <p>Game voli mobile 3v3 dengan gaya cepat dan brutal. Kontrol 1 pemain dengan timing spike, block, set, dan dive yang presisi.</p>
+                </div>
+                <div class="explanation-item">
+                    <h4>⚡ Fitur Game</h4>
+                    <p>Quick attack, pipe spike, fast tempo. Spike bisa langsung kill lawan. Sangat kompetitif dan adiktif!</p>
+                </div>
+                <div class="explanation-item">
+                    <h4>🏆 Mode Game</h4>
+                    <p>Story Mode, Tournament, Colosseum, Beach Volleyball, Super Star League. Banyak tantangan!</p>
+                </div>
+                <div class="explanation-item">
+                    <h4>👥 Karakter OP</h4>
+                    <p>Nishikawa, Sara, Raul, Hongshi, Ryuhyeon, dan masih banyak lagi. Setiap karakter punya skill unik.</p>
+                </div>
+                <div class="explanation-item">
+                    <h4>📱 Platform</h4>
+                    <p>Download di Play Store (Android), App Store (iOS), dan Steam (PC) dengan fitur Cross-Play!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PENJELASAN THE SPIKE SCRIPT -->
+        <div class="explanation-card">
+            <h3><i class="fas fa-code"></i> APA ITU THE SPIKE SCRIPT?</h3>
+            <div class="explanation-grid">
+                <div class="explanation-item">
+                    <h4>🤖 Cheat OP</h4>
+                    <p>Script khusus The Spike untuk dominate tanpa grind berat. Work di Android & iOS dengan anti detect update 2026.</p>
+                </div>
+                <div class="explanation-item">
+                    <h4>⚙️ Fitur Utama</h4>
+                    <p>Auto spike sempurna, unlimited stat & money, unlock semua karakter, anti ban lifetime.</p>
+                </div>
+                <div class="explanation-item">
+                    <h4>🛡️ Keamanan</h4>
+                    <p>Anti detect canggih, low risk. Update gratis selamanya. Aman dipakai untuk daily play.</p>
+                </div>
+                <div class="explanation-item">
+                    <h4>💎 Dua Pilihan</h4>
+                    <p><span class="feature-tag">🔥 AXE</span> <span class="feature-tag">👑 VIP</span><br>Axe brutal full power, VIP santai natural. Pilih sesuai kebutuhan!</p>
+                </div>
+            </div>
         </div>
 
         <!-- SHOWCASE SECTION -->
@@ -177,9 +305,10 @@
             <div class="card">
                 <h2 style="color: #7c3aed;">⚔️ PAKET AXE</h2>
                 <div class="price">Rp 47.000 <small>/lifetime</small></div>
-                <div class="list-item"><i class="fas fa-check"></i> Stat MAX 999 semua</div>
-                <div class="list-item"><i class="fas fa-check"></i> Auto Spike 100%</div>
-                <div class="list-item"><i class="fas fa-check"></i> Unlock ALL karakter</div>
+                <div class="list-item"><i class="fas fa-check"></i> Unlimited Stat MAX 999</div>
+                <div class="list-item"><i class="fas fa-check"></i> Auto Spike Perfect 100%</div>
+                <div class="list-item"><i class="fas fa-check"></i> Boom Jump & Quick Attack Max</div>
+                <div class="list-item"><i class="fas fa-check"></i> Unlock ALL Characters</div>
                 <div class="list-item"><i class="fas fa-check"></i> God Mode + Anti Ban</div>
                 <div class="list-item"><i class="fas fa-check"></i> Auto Win semua mode</div>
                 <div class="list-item"><i class="fas fa-check"></i> Update gratis selamanya</div>
@@ -191,25 +320,25 @@
                 <div class="price">Rp 37.000 <small>/lifetime</small></div>
                 <div class="list-item"><i class="fas fa-check"></i> Unlimited Money & Coins</div>
                 <div class="list-item"><i class="fas fa-check"></i> Stat naik signifikan</div>
-                <div class="list-item"><i class="fas fa-check"></i> Auto Spike 80-95%</div>
+                <div class="list-item"><i class="fas fa-check"></i> Auto Spike 80-95% Perfect</div>
                 <div class="list-item"><i class="fas fa-check"></i> Unlock sebagian karakter</div>
                 <div class="list-item"><i class="fas fa-check"></i> Anti detect basic</div>
                 <div class="list-item"><i class="fas fa-check"></i> Support standar</div>
             </div>
         </div>
 
-        <!-- COMPARISON -->
+        <!-- KESIMPULAN -->
         <h3 class="section-title">📊 KESIMPULAN</h3>
         <div class="grid">
             <div class="card" style="border-left: 4px solid #7c3aed;">
-                <h3 style="color: #7c3aed;">⚔️ AXE</h3>
-                <p style="margin: 1rem 0;">✓ Lebih bagus dari VIP<br>✓ Fitur full brutal<br>✓ Menang telak tanpa ampun</p>
-                <p style="color: #7c3aed; font-weight: 700; margin-top: 1rem;">★ PILIH YANG TERBAIK!</p>
+                <h3 style="color: #7c3aed;">⚔️ AXE EDITION</h3>
+                <p style="margin: 1rem 0;">✓ <strong>Lebih bagus dari VIP</strong><br>✓ Fitur full brutal<br>✓ Performa maksimal<br>✓ Menang telak tanpa ampun</p>
+                <p style="color: #7c3aed; font-weight: 700; margin-top: 1rem;">★ PILIH AXE KALAU MAU YANG TERBAIK!</p>
             </div>
             <div class="card" style="border-left: 4px solid #ffd700;">
-                <h3 style="color: #ffd700;">👑 VIP</h3>
-                <p style="margin: 1rem 0;">✓ Santai & natural<br>✓ Mirip asli<br>✓ Aman low risk</p>
-                <p style="color: #ffd700; font-weight: 700; margin-top: 1rem;">★ PILIH YANG AMAN!</p>
+                <h3 style="color: #ffd700;">👑 VIP EDITION</h3>
+                <p style="margin: 1rem 0;">✓ Cocok buat santai & ori<br>✓ Ringan dan aman<br>✓ Mirip asli<br>✓ Resiko kecil</p>
+                <p style="color: #ffd700; font-weight: 700; margin-top: 1rem;">★ PILIH VIP KALAU MAU YANG AMAN!</p>
             </div>
         </div>
 
@@ -222,9 +351,9 @@
 
         <!-- FOOTER -->
         <div class="footer">
-            <p><i class="fas fa-dragon"></i> TSC STORE · Official The Spike Seller</p>
-            <p>© 2026 · Dominate The Court! 🏐</p>
+            <p><i class="fas fa-dragon"></i> TSC STORE · Official The Spike Script Seller</p>
+            <p>© 2026 TSC Store · Dominate The Court! 🏐</p>
         </div>
     </div>
 </body>
-</html>
+                                                                              </html>
