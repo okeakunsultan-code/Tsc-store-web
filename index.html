@@ -87,14 +87,38 @@
 
         /* Warning */
         .warning {
-            background: rgba(255,71,87,0.05); border: 1px solid #ff4757; border-radius: 15px;
-            padding: 1.5rem; text-align: center; margin: 2rem 0; color: #ff4757;
+            background: rgba(255,71,87,0.05); border: 2px solid #ff4757; border-radius: 15px;
+            padding: 2rem; text-align: center; margin: 3rem 0;
         }
+        .warning h3 { color: #ff4757; font-size: 1.8rem; margin-bottom: 1rem; }
+        .warning p { color: #fff; margin: 0.5rem 0; font-size: 1.1rem; }
+        .warning .ban { color: #ff4757; font-weight: 700; font-size: 1.3rem; margin-top: 1rem; }
+
+        /* Showcase */
+        .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+        .showcase-card {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px; padding: 1.5rem; text-align: center;
+        }
+        .showcase-card.axe { border-top: 4px solid #7c3aed; }
+        .showcase-card.vip { border-top: 4px solid #ffd700; }
+        .showcase-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .showcase-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .showcase-link {
+            display: inline-block; background: #000; color: #fff; padding: 0.8rem 1.5rem;
+            border-radius: 30px; text-decoration: none; border: 1px solid #ff0050; margin-top: 1rem;
+            transition: 0.3s;
+        }
+        .showcase-link:hover { background: #ff0050; transform: scale(1.05); }
 
         /* Footer */
         .footer { text-align: center; padding: 2rem; color: #666; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 3rem; }
         
-        @media (max-width: 768px) { .logo { font-size: 3.5rem; } .title { font-size: 1.8rem; } }
+        @media (max-width: 768px) { 
+            .logo { font-size: 3.5rem; } 
+            .title { font-size: 1.8rem; }
+            .showcase-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -113,13 +137,37 @@
             </a>
         </div>
 
-        <!-- GAME INFO -->
-        <h3 class="section-title">📌 TENTANG GAME</h3>
-        <div class="card" style="margin-bottom: 2rem;">
-            <div class="list-item"><i class="fas fa-dragon"></i> Game voli 3v3 ala Haikyuu</div>
-            <div class="list-item"><i class="fas fa-dragon"></i> Timing spike, block, set presisi</div>
-            <div class="list-item"><i class="fas fa-dragon"></i> Mode: Story, Tournament, Colosseum, Beach</div>
-            <div class="list-item"><i class="fas fa-dragon"></i> Karakter OP: Nishikawa, Sara, Raul, dll</div>
+        <!-- SHOWCASE SECTION -->
+        <h3 class="section-title">🎥 LIHAT BUKTI NYATA!</h3>
+        <div class="showcase-grid">
+            <!-- AXE SHOWCASE -->
+            <div class="showcase-card axe">
+                <div class="showcase-icon"><i class="fas fa-skull" style="color: #7c3aed;"></i></div>
+                <h4 class="showcase-title">🔥 PAKET AXE 🔥</h4>
+                <p style="color: #ccc; margin-bottom: 1rem;">Versi brutal full power! Stat 999, auto spike 100%</p>
+                <a href="https://vt.tiktok.com/ZSm9of2bk/" class="showcase-link" target="_blank">
+                    <i class="fab fa-tiktok"></i> LIHAT SHOWCASE
+                </a>
+            </div>
+            
+            <!-- VIP SHOWCASE -->
+            <div class="showcase-card vip">
+                <div class="showcase-icon"><i class="fas fa-crown" style="color: #ffd700;"></i></div>
+                <h4 class="showcase-title">👑 PAKET VIP 👑</h4>
+                <p style="color: #ccc; margin-bottom: 1rem;">Versi santai & ori! Stat natural, anti detect aman</p>
+                <a href="https://vt.tiktok.com/ZSm9osjRd/" class="showcase-link" target="_blank">
+                    <i class="fab fa-tiktok"></i> LIHAT SHOWCASE
+                </a>
+            </div>
+        </div>
+
+        <!-- WARNING BESAR -->
+        <div class="warning">
+            <h3><i class="fas fa-exclamation-triangle"></i> PERINGATAN RESMI</h3>
+            <p>Jika ingin showcase script ini, <strong style="color: #ffd700;">WAJIB</strong> cantumkan nama pemilik SC:</p>
+            <p style="font-size: 1.5rem; color: #7c3aed; margin: 1rem 0;"><strong>T STORE</strong></p>
+            <p><strong style="color: #ff4757;">🚫 TIDAK ADA RESELLER SAMA SEKALI 🚫</strong></p>
+            <p class="ban">Jika ketahuan ada reseller → <strong style="color: #ff4757;">AKAN DI BAN DARI SC KAMI PERMANEN</strong></p>
         </div>
 
         <!-- PRICE CARDS -->
@@ -134,6 +182,7 @@
                 <div class="list-item"><i class="fas fa-check"></i> Unlock ALL karakter</div>
                 <div class="list-item"><i class="fas fa-check"></i> God Mode + Anti Ban</div>
                 <div class="list-item"><i class="fas fa-check"></i> Auto Win semua mode</div>
+                <div class="list-item"><i class="fas fa-check"></i> Update gratis selamanya</div>
             </div>
 
             <!-- VIP -->
@@ -141,19 +190,12 @@
                 <h2 style="color: #ffd700;">👑 PAKET VIP</h2>
                 <div class="price">Rp 37.000 <small>/lifetime</small></div>
                 <div class="list-item"><i class="fas fa-check"></i> Unlimited Money & Coins</div>
-                <div class="list-item"><i class="fas fa-check"></i> Stat naik natural</div>
+                <div class="list-item"><i class="fas fa-check"></i> Stat naik signifikan</div>
                 <div class="list-item"><i class="fas fa-check"></i> Auto Spike 80-95%</div>
                 <div class="list-item"><i class="fas fa-check"></i> Unlock sebagian karakter</div>
                 <div class="list-item"><i class="fas fa-check"></i> Anti detect basic</div>
+                <div class="list-item"><i class="fas fa-check"></i> Support standar</div>
             </div>
-        </div>
-
-        <!-- WARNING -->
-        <div class="warning">
-            <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
-            <p><strong>PERINGATAN RESMI</strong></p>
-            <p>WAJIB cantumkan <strong>T Store</strong> jika showcase</p>
-            <p style="color: #ff4757; margin-top: 0.5rem;">🚫 TIDAK ADA RESELLER! BAN PERMANEN 🚫</p>
         </div>
 
         <!-- COMPARISON -->
@@ -161,13 +203,13 @@
         <div class="grid">
             <div class="card" style="border-left: 4px solid #7c3aed;">
                 <h3 style="color: #7c3aed;">⚔️ AXE</h3>
-                <p>Lebih bagus & brutal, fitur full, menang telak</p>
-                <p style="color: #7c3aed; margin-top: 1rem;">★ Pilihan TERBAIK</p>
+                <p style="margin: 1rem 0;">✓ Lebih bagus dari VIP<br>✓ Fitur full brutal<br>✓ Menang telak tanpa ampun</p>
+                <p style="color: #7c3aed; font-weight: 700; margin-top: 1rem;">★ PILIH YANG TERBAIK!</p>
             </div>
             <div class="card" style="border-left: 4px solid #ffd700;">
                 <h3 style="color: #ffd700;">👑 VIP</h3>
-                <p>Santai & ori, natural, aman low risk</p>
-                <p style="color: #ffd700; margin-top: 1rem;">★ Pilihan AMAN</p>
+                <p style="margin: 1rem 0;">✓ Santai & natural<br>✓ Mirip asli<br>✓ Aman low risk</p>
+                <p style="color: #ffd700; font-weight: 700; margin-top: 1rem;">★ PILIH YANG AMAN!</p>
             </div>
         </div>
 
@@ -185,4 +227,4 @@
         </div>
     </div>
 </body>
-    </html>
+</html>
